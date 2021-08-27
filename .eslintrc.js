@@ -11,20 +11,14 @@ module.exports = {
     'plugin:unicorn/recommended',
     'prettier',
   ],
-  ignorePatterns: [
-    '/*.js',
-  ],
+  ignorePatterns: ['/*.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: [
-      path.resolve(__dirname, 'tsconfig.json'),
-    ],
+    project: [path.resolve(__dirname, 'tsconfig.json')],
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    '@typescript-eslint/explicit-function-return-type': [
-      'error',
-    ],
+    '@typescript-eslint/explicit-function-return-type': ['error'],
     'import/order': [
       'error',
       {
@@ -60,5 +54,15 @@ module.exports = {
   settings: {
     'import/extensions': ['.ts'],
   },
-  overrides: [],
+  overrides: [
+    {
+      files: ['test/**/*.spec.ts'],
+      extends: ['plugin:jest/recommended'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        'jest/no-disabled-tests': 'off',
+      },
+    },
+  ],
 };

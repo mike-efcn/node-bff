@@ -20,7 +20,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec ts-node --files src/index.ts",
-    "lint": "eslint -c ./.eslintrc.js --ext .ts src"
+    "lint": "eslint -c ./.eslintrc.js --ext .ts src test",
+    "test": "jest -c jest.config.js"
   },
   "dependencies": {
     "apollo-server-core": "^2.25.0",
@@ -37,6 +38,8 @@
     "type-graphql": "^1.1.1"
   },
   "devDependencies": {
+    "@jest/types": "^27.0.6",
+    "@types/jest": "^27.0.1",
     "@types/node": "^16.7.2",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
@@ -45,11 +48,14 @@
     "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-unicorn": "^35.0.0",
     "husky": "^7.0.2",
+    "jest": "^27.0.6",
     "lint-staged": "^11.1.2",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
+    "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5"
   },
@@ -59,7 +65,7 @@
     ],
     "**/*.ts": [
       "prettier -w",
-      "eslint --ext .ts src"
+      "eslint --ext .ts src test"
     ]
   }
 }
