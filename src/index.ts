@@ -7,7 +7,7 @@ import createSchema from './createSchema';
 
 dotenv();
 
-(async () => {
+(async (): Promise<void> => {
   const app = express();
 
   // https://github.com/APIs-guru/graphql-voyager#express
